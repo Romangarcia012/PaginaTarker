@@ -18,11 +18,10 @@
 
     /* NAV */
     nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0.75rem 5vw; background:rgba(15,15,15,0.94); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); }
-    .nav-logo-wrap { display:flex; align-items:center; gap:0.6rem; text-decoration:none; }
-    .logo-text-block { display:flex; flex-direction:column; line-height:1; }
-    .logo-wordmark { font-family:'Rubik Mono One',monospace; font-size:1.2rem; letter-spacing:0.1em; color:var(--text); }
+    .nav-logo-wrap { display:flex; align-items:center; gap:0.4rem; text-decoration:none; }
+    .logo-wordmark { font-family:'Rubik Mono One',monospace; font-size:1.25rem; letter-spacing:0.1em; color:var(--text); line-height:1; }
     .logo-wordmark .er { color:var(--accent); }
-    .logo-sub { font-family:'Inter',sans-serif; font-weight:400; font-size:0.52rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--muted); margin-top:2px; }
+    .logo-sub { font-family:'Inter',sans-serif; font-weight:400; font-size:0.52rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--muted); display:block; margin-top:2px; }
     nav ul { list-style:none; display:flex; gap:2rem; }
     nav ul a { color:var(--muted); text-decoration:none; font-size:0.8rem; letter-spacing:0.07em; text-transform:uppercase; transition:color .25s; }
     nav ul a:hover { color:var(--accent2); }
@@ -31,14 +30,11 @@
     #hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:7rem 5vw 5rem; position:relative; overflow:hidden; }
     .hero-bg { position:absolute; inset:0; background: radial-gradient(ellipse 70% 55% at 50% 60%,rgba(200,136,42,0.12) 0%,transparent 70%), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80&auto=format&fit=crop') center/cover no-repeat; filter:brightness(0.22); z-index:0; }
     #hero > * { position:relative; z-index:1; }
-
-    .hero-logo { display:flex; align-items:center; gap:1rem; justify-content:center; margin-bottom:1.8rem; opacity:0; animation:fadeUp .7s .2s forwards; }
-    .hero-logo .word { font-family:'Rubik Mono One',monospace; font-size:clamp(2.6rem,8vw,5rem); letter-spacing:0.1em; color:var(--text); line-height:1; }
-    .hero-logo .word .er { color:var(--accent); }
-    .hero-logo .sub-lg { font-size:clamp(0.58rem,1.4vw,0.72rem); letter-spacing:0.32em; text-transform:uppercase; color:var(--muted); margin-top:5px; display:block; }
-
-    .hero-sub { font-size:clamp(0.95rem,2.5vw,1.1rem); color:var(--muted); max-width:480px; opacity:0; animation:fadeUp .7s .4s forwards; }
-    .hero-badge-free { display:inline-block; background:rgba(200,136,42,.13); border:1px solid var(--accent); color:var(--accent2); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; padding:0.3rem 1rem; border-radius:2px; margin-top:1.1rem; opacity:0; animation:fadeUp .7s .5s forwards; }
+    .hero-wordmark { font-family:'Rubik Mono One',monospace; font-size:clamp(3rem,10vw,6rem); letter-spacing:0.1em; color:var(--text); line-height:1; opacity:0; animation:fadeUp .7s .2s forwards; }
+    .hero-wordmark .er { color:var(--accent); }
+    .hero-subbrand { font-size:clamp(0.6rem,1.5vw,0.75rem); letter-spacing:0.35em; text-transform:uppercase; color:var(--muted); margin-top:6px; display:block; opacity:0; animation:fadeUp .7s .32s forwards; }
+    .hero-sub { font-size:clamp(0.95rem,2.5vw,1.1rem); color:var(--muted); max-width:480px; margin-top:1.4rem; opacity:0; animation:fadeUp .7s .44s forwards; }
+    .hero-badge-free { display:inline-block; background:rgba(200,136,42,.13); border:1px solid var(--accent); color:var(--accent2); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; padding:0.3rem 1rem; border-radius:2px; margin-top:1.1rem; opacity:0; animation:fadeUp .7s .54s forwards; }
     .hero-cta { margin-top:2.2rem; display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; opacity:0; animation:fadeUp .7s .65s forwards; }
     .btn { display:inline-flex; align-items:center; gap:.55rem; padding:.85rem 2rem; border-radius:3px; font-size:.88rem; font-weight:600; letter-spacing:.05em; text-decoration:none; transition:transform .2s,box-shadow .2s,background .2s; cursor:pointer; }
     .btn-primary { background:var(--accent); color:#0f0f0f; border:2px solid var(--accent); }
@@ -54,18 +50,20 @@
     .section-desc { color:var(--muted); max-width:520px; font-size:.95rem; }
     .divider { width:48px; height:3px; background:var(--accent); margin:1.4rem 0 2.8rem; border-radius:2px; }
 
-    /* BANNER FOTO */
-    #banner-trabajo { padding:0; position:relative; height:480px; overflow:hidden; }
-    #banner-trabajo img { width:100%; height:100%; object-fit:cover; object-position:center 40%; filter:brightness(.45) saturate(.75); display:block; }
-    .banner-overlay { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; background:linear-gradient(to bottom,rgba(15,15,15,.15) 0%,rgba(15,15,15,.6) 100%); }
-    .banner-overlay h2 { font-family:'Rubik Mono One',monospace; font-size:clamp(2rem,5vw,3.2rem); letter-spacing:.06em; color:var(--text); text-shadow:0 2px 20px rgba(0,0,0,.9); }
-    .banner-overlay p { color:rgba(240,236,230,.7); margin-top:.7rem; font-size:clamp(.85rem,2vw,.95rem); max-width:380px; padding:0 1.5rem; }
+    /* BANNER VIDEOS */
+    #banner-trabajo { padding:4rem 5vw; background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+    .banner-title-block { text-align:center; margin-bottom:2.5rem; }
+    .banner-title-block h2 { font-family:'Rubik Mono One',monospace; font-size:clamp(1.6rem,4vw,2.4rem); letter-spacing:.06em; color:var(--text); }
+    .banner-title-block p { color:var(--muted); margin-top:.6rem; font-size:.9rem; letter-spacing:.04em; }
+    .videos-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.2rem; max-width:960px; margin:0 auto; }
+    .video-wrap { border-radius:4px; overflow:hidden; border:1px solid var(--border); background:#000; aspect-ratio:9/16; }
+    .video-wrap video { width:100%; height:100%; object-fit:cover; display:block; }
 
     /* SERVICIOS */
-    #servicios { background:var(--surface); }
+    #servicios { background:var(--bg); }
     #servicios .inner { max-width:1100px; margin:0 auto; }
     .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; }
-    .service-card { background:var(--bg); border:1px solid var(--border); border-radius:4px; padding:2.2rem 1.8rem; position:relative; overflow:hidden; transition:transform .3s,border-color .3s,box-shadow .3s; }
+    .service-card { background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:2.2rem 1.8rem; position:relative; overflow:hidden; transition:transform .3s,border-color .3s,box-shadow .3s; }
     .service-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--accent),var(--accent2)); opacity:0; transition:opacity .3s; }
     .service-card:hover { transform:translateY(-5px); border-color:var(--accent); box-shadow:0 16px 40px rgba(0,0,0,.5); }
     .service-card:hover::before { opacity:1; }
@@ -75,10 +73,10 @@
     .service-card p { font-size:.87rem; color:var(--muted); line-height:1.7; }
 
     /* NOSOTROS */
-    #nosotros { background:var(--bg); }
+    #nosotros { background:var(--surface); }
     #nosotros .inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
     .about-img-wrap { position:relative; }
-    .about-img-wrap img { width:100%; border-radius:4px; filter:brightness(.82) saturate(.75); display:block; }
+    .about-img-wrap img { width:100%; border-radius:4px; filter:brightness(.85) saturate(.8); display:block; }
     .about-img-wrap::after { content:''; position:absolute; bottom:-12px; right:-12px; width:60%; height:60%; border:2px solid var(--accent); border-radius:4px; z-index:-1; }
     .about-text .section-desc { max-width:100%; }
     .stats { display:flex; gap:2.5rem; margin-top:2.5rem; }
@@ -86,19 +84,19 @@
     .stat-item p { font-size:.8rem; color:var(--muted); margin-top:.3rem; }
 
     /* CONTACTO */
-    #contacto { background:var(--surface); }
+    #contacto { background:var(--bg); }
     #contacto .inner { max-width:800px; margin:0 auto; text-align:center; }
     #contacto .section-desc { margin:0 auto; max-width:500px; }
     #contacto .divider { margin:1.4rem auto 2rem; }
     .presupuesto-tag { display:inline-flex; align-items:center; gap:.5rem; background:rgba(200,136,42,.12); border:1px solid var(--accent); color:var(--accent2); font-size:.75rem; letter-spacing:.12em; text-transform:uppercase; padding:.4rem 1.1rem; border-radius:2px; margin-bottom:2rem; }
     .presupuesto-tag svg { width:14px; height:14px; stroke:var(--accent2); fill:none; }
     .contact-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.2rem; }
-    .contact-card { background:var(--bg); border:1px solid var(--border); border-radius:4px; padding:2rem 1.4rem; text-decoration:none; color:var(--text); transition:border-color .25s,transform .25s; display:flex; flex-direction:column; align-items:center; gap:.8rem; }
+    .contact-card { background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:2rem 1.4rem; text-decoration:none; color:var(--text); transition:border-color .25s,transform .25s; display:flex; flex-direction:column; align-items:center; gap:.8rem; }
     .contact-card:hover { border-color:var(--accent); transform:translateY(-4px); }
     .contact-card svg { width:28px; height:28px; stroke:var(--accent); fill:none; }
     .contact-card span { font-size:.8rem; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; }
     .contact-card strong { font-size:.88rem; word-break:break-all; }
-    .address-block { margin-top:2rem; padding:1.4rem 1.8rem; border:1px solid var(--border); border-radius:4px; background:var(--bg); display:inline-flex; align-items:center; gap:1rem; font-size:.88rem; color:var(--muted); }
+    .address-block { margin-top:2rem; padding:1.4rem 1.8rem; border:1px solid var(--border); border-radius:4px; background:var(--surface); display:inline-flex; align-items:center; gap:1rem; font-size:.88rem; color:var(--muted); }
     .address-block svg { stroke:var(--accent); fill:none; flex-shrink:0; }
 
     footer { background:var(--bg); border-top:1px solid var(--border); padding:2rem 5vw; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
@@ -114,8 +112,7 @@
       #nosotros .inner { grid-template-columns:1fr; gap:2.5rem; }
       .about-img-wrap::after { display:none; }
       .stats { gap:1.5rem; }
-      #banner-trabajo { height:320px; }
-      .hero-logo { flex-direction:column; gap:.5rem; }
+      .videos-grid { grid-template-columns:1fr; }
     }
   </style>
 </head>
@@ -124,12 +121,7 @@
 <!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo-wrap">
-    <svg width="32" height="28" viewBox="0 0 34 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="0" y="0" width="34" height="5" rx="1.2" fill="#ffffff"/>
-      <rect x="2" y="5" width="11" height="25" rx="1.2" fill="#ffffff"/>
-      <rect x="21" y="5" width="11" height="25" rx="1.2" fill="#ffffff"/>
-    </svg>
-    <div class="logo-text-block">
+    <div>
       <span class="logo-wordmark">TARK<span class="er">ER</span></span>
       <span class="logo-sub">Soluciones</span>
     </div>
@@ -144,17 +136,8 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
-  <div class="hero-logo">
-    <svg width="72" height="62" viewBox="0 0 34 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="0" y="0" width="34" height="5" rx="1.2" fill="#ffffff"/>
-      <rect x="2" y="5" width="11" height="25" rx="1.2" fill="#ffffff"/>
-      <rect x="21" y="5" width="11" height="25" rx="1.2" fill="#ffffff"/>
-    </svg>
-    <div>
-      <div class="word">TARK<span class="er">ER</span></div>
-      <span class="sub-lg">Soluciones</span>
-    </div>
-  </div>
+  <div class="hero-wordmark">TARK<span class="er">ER</span></div>
+  <span class="hero-subbrand">Soluciones</span>
   <p class="hero-sub">Remodelación, albañilería, impermeabilizaciones y más. Trabajo serio con resultados que duran.</p>
   <span class="hero-badge-free">✓ Presupuesto sin cargo</span>
   <div class="hero-cta">
@@ -170,12 +153,23 @@
   </div>
 </section>
 
-<!-- BANNER FOTO REAL -->
+<!-- BANNER VIDEOS -->
 <div id="banner-trabajo">
-  <img src="https://images.unsplash.com/photo-1590579491624-f98f36d4c763?w=1600&q=80&auto=format&fit=crop" alt="Trabajo en obra Tarker"/>
-  <div class="banner-overlay">
-    <h2 class="reveal">CADA PROYECTO ES ÚNICO</h2>
-    <p class="reveal">Pergamino y alrededores · Presupuesto sin cargo</p>
+  <div class="banner-title-block reveal">
+    <h2>CADA PROYECTO ES ÚNICO</h2>
+    <p>Pergamino y alrededores · Presupuesto sin cargo</p>
+  </div>
+  <div class="videos-grid">
+    <div class="video-wrap reveal">
+      <video controls playsinline preload="metadata">
+        <source src="Detr%C3%A1s%20de%20cada%20trabajo%20hay%20decisiones%20importantes%20que%20hacer%2C%20como%20que%20materiales%20usar%20y%20c%C3%B3mo%20hac.mp4" type="video/mp4"/>
+      </video>
+    </div>
+    <div class="video-wrap reveal">
+      <video controls playsinline preload="metadata">
+        <source src="%C2%A1Preparate%20para%20un%20verano%20sin%20preocupaciones!Antes-%20un%20techo%20lleno%20de%20grietas%20y%20en%20mal%20estado%20%E2%9D%8CD.mp4" type="video/mp4"/>
+      </video>
+    </div>
   </div>
 </div>
 
@@ -224,7 +218,7 @@
 <section id="nosotros">
   <div class="inner">
     <div class="about-img-wrap reveal">
-      <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80&auto=format&fit=crop" alt="Equipo trabajando en obra"/>
+      <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80&auto=format&fit=crop" alt="Trabajador en obra de remodelación"/>
     </div>
     <div class="about-text">
       <p class="section-label reveal">Quiénes somos</p>
@@ -283,12 +277,7 @@
 <!-- FOOTER -->
 <footer>
   <a href="#hero" class="nav-logo-wrap">
-    <svg width="26" height="22" viewBox="0 0 34 30" fill="none">
-      <rect x="0" y="0" width="34" height="5" rx="1.2" fill="#ffffff"/>
-      <rect x="2" y="5" width="11" height="25" rx="1.2" fill="#ffffff"/>
-      <rect x="21" y="5" width="11" height="25" rx="1.2" fill="#ffffff"/>
-    </svg>
-    <div class="logo-text-block">
+    <div>
       <span class="logo-wordmark" style="font-size:.95rem">TARK<span class="er">ER</span></span>
       <span class="logo-sub">Soluciones</span>
     </div>
