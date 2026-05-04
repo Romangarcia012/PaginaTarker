@@ -1,0 +1,24 @@
+/* Hamburger button styles */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+/* Show hamburger button on mobile */
+@media only screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+        background-color: var(--accent);
+        color: var(--bg);
+        font-size: 2rem;
+        padding: 10px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    nav.active {
+        display: block;
+    }
+}
