@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v3 -->
+<!-- v4 -->
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -20,7 +20,7 @@
     body { background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; font-weight:300; line-height:1.6; overflow-x:hidden; }
 
     /* NAV */
-    nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0.75rem 5vw; background:rgba(15,15,15,0.94); backdrop-filter: blur(12px); border-bottom:1px solid var(--border); }
+    nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0.75rem 5vw; background:rgba(15,15,15,0.94); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
     .nav-logo-wrap { display:flex; align-items:center; gap:0.4rem; text-decoration:none; }
     .logo-wordmark { font-family:'Rubik Mono One',monospace; font-size:1.25rem; letter-spacing:0.1em; color:var(--text); line-height:1; }
     .logo-wordmark .er { color:var(--accent); }
@@ -29,22 +29,26 @@
     nav ul a { color:var(--muted); text-decoration:none; font-size:0.8rem; letter-spacing:0.07em; text-transform:uppercase; transition:color .25s; }
     nav ul a:hover { color:var(--accent2); }
 
+    /* HAMBURGER – oculto en desktop */
+    .hamburger { display:none; background:transparent; border:1px solid var(--border); color:var(--text); font-size:1.3rem; line-height:1; padding:0.35rem 0.65rem; border-radius:3px; cursor:pointer; transition:border-color .2s,color .2s; }
+    .hamburger:hover { border-color:var(--accent); color:var(--accent); }
+
     /* HERO */
     #hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:7rem 5vw 5rem; position:relative; overflow:hidden; }
-    .hero-bg { position:absolute; inset:0; background: radial-gradient(ellipse 70% 55% at 50% 60%,rgba(200,136,42,0.12) 0%,transparent 70%); background-size:cover; background-position:center; filter:blur(0px); opacity:1; transform:scale(1.08); }
+    .hero-bg { position:absolute; inset:0; background: radial-gradient(ellipse 70% 55% at 50% 60%,rgba(200,136,42,0.12) 0%,transparent 70%); background-size:cover; background-position:center; filter:brightness(.55); }
     #hero > * { position:relative; z-index:1; }
     .hero-wordmark { font-family:'Rubik Mono One',monospace; font-size:clamp(3rem,10vw,6rem); letter-spacing:0.1em; color:var(--text); line-height:1; opacity:0; animation:fadeUp .7s .2s forwards; }
     .hero-wordmark .er { color:var(--accent); }
     .hero-subbrand { font-size:clamp(0.6rem,1.5vw,0.75rem); letter-spacing:0.35em; text-transform:uppercase; color:var(--muted); margin-top:6px; display:block; opacity:0; animation:fadeUp .7s .32s forwards; }
     .hero-sub { font-size:clamp(0.95rem,2.5vw,1.1rem); color:var(--muted); max-width:480px; margin-top:1.4rem; opacity:0; animation:fadeUp .7s .44s forwards; }
-    .hero-badge-free { display:inline-block; background:rgba(200,136,42,.13); border:1px solid var(--accent); color:var(--accent2); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; padding:.55rem 1rem; border-radius:3px; margin-top:1.4rem; opacity:0; animation:fadeUp .7s .55s forwards; }
+    .hero-badge-free { display:inline-block; background:rgba(200,136,42,.13); border:1px solid var(--accent); color:var(--accent2); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; padding:.45rem 1rem; border-radius:2px; margin-top:1.6rem; opacity:0; animation:fadeUp .7s .55s forwards; }
     .hero-cta { margin-top:2.2rem; display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; opacity:0; animation:fadeUp .7s .65s forwards; }
-    .btn { display:inline-flex; align-items:center; gap:.55rem; padding:.85rem 2rem; border-radius:3px; font-size:.88rem; font-weight:600; letter-spacing:.05em; text-decoration:none; transition:transform .25s,box-shadow .25s,background .25s,border-color .25s,color .25s; }
+    .btn { display:inline-flex; align-items:center; gap:.55rem; padding:.85rem 2rem; border-radius:3px; font-size:.88rem; font-weight:600; letter-spacing:.05em; text-decoration:none; transition:transform .2s,box-shadow .2s,background .2s,border-color .2s,color .2s; }
     .btn-primary { background:var(--accent); color:#0f0f0f; border:2px solid var(--accent); }
     .btn-primary:hover { background:var(--accent2); border-color:var(--accent2); transform:translateY(-2px); box-shadow:0 8px 24px rgba(200,136,42,.35); }
     .btn-outline { background:transparent; color:var(--text); border:2px solid var(--border); }
     .btn-outline:hover { border-color:var(--accent); color:var(--accent); transform:translateY(-2px); }
-    .scroll-hint { position:absolute; bottom:2.2rem; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:.4rem; color:var(--muted); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; opacity:0; animation:fadeUp .7s 1s forwards; transition: opacity 0.4s; }
+    .scroll-hint { position:absolute; bottom:2.2rem; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:.4rem; color:var(--muted); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; transition:opacity .4s; }
     .scroll-hint svg { opacity:0.7; animation:bounce 1.6s infinite; }
 
     /* SECTION BASE */
@@ -89,15 +93,15 @@
     #contacto .inner { max-width:800px; margin:0 auto; text-align:center; }
     #contacto .section-desc { margin:0 auto; max-width:500px; }
     #contacto .divider { margin:1.4rem auto 2rem; }
-    .presupuesto-tag { display:inline-flex; align-items:center; gap:.5rem; background:rgba(200,136,42,.12); border:1px solid var(--accent); color:var(--accent2); font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; padding:.65rem 1.1rem; border-radius:3px; margin-bottom:2rem; }
+    .presupuesto-tag { display:inline-flex; align-items:center; gap:.5rem; background:rgba(200,136,42,.12); border:1px solid var(--accent); color:var(--accent2); font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; padding:.5rem 1.1rem; border-radius:2px; margin-bottom:2rem; }
     .presupuesto-tag svg { width:14px; height:14px; stroke:var(--accent2); fill:none; }
     .contact-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.2rem; }
-    .contact-card { background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:2rem 1.4rem; text-decoration:none; color:var(--text); transition:border-color .25s,transform .25s; display:flex; flex-direction:column; gap:.9rem; align-items:center; justify-content:center; }
+    .contact-card { background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:2rem 1.4rem; text-decoration:none; color:var(--text); transition:border-color .25s,transform .25s; display:flex; flex-direction:column; align-items:center; gap:.6rem; }
     .contact-card:hover { border-color:var(--accent); transform:translateY(-4px); }
     .contact-card svg { width:28px; height:28px; stroke:var(--accent); fill:none; }
     .contact-card span { font-size:.8rem; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; }
     .contact-card strong { font-size:.88rem; word-break:break-all; }
-    .address-block { margin-top:2rem; padding:1.4rem 1.8rem; border:1px solid var(--border); border-radius:4px; background:var(--surface); display:inline-flex; align-items:center; gap:1rem; font-size:.85rem; color:var(--muted); }
+    .address-block { margin-top:2rem; padding:1.4rem 1.8rem; border:1px solid var(--border); border-radius:4px; background:var(--surface); display:inline-flex; align-items:center; gap:1rem; font-size:.88rem; color:var(--muted); }
     .address-block svg { stroke:var(--accent); fill:none; flex-shrink:0; }
 
     footer { background:var(--bg); border-top:1px solid var(--border); padding:2rem 5vw; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
@@ -109,7 +113,30 @@
     .reveal.visible { opacity:1; transform:translateY(0); }
 
     @media (max-width:768px) {
-      nav ul { display:none; }
+      /* Mostrar hamburguesa */
+      .hamburger { display:block; }
+
+      /* Ocultar y posicionar el menú como dropdown */
+      nav ul {
+        display:none;
+        position:absolute;
+        top:100%;
+        left:5vw;
+        right:5vw;
+        flex-direction:column;
+        gap:0;
+        background:rgba(15,15,15,0.97);
+        border:1px solid var(--border);
+        border-radius:4px;
+        padding:.5rem 0;
+      }
+      nav ul.active { display:flex; }
+      nav ul li a {
+        display:block;
+        padding:.75rem 1.2rem;
+        font-size:.9rem;
+      }
+
       #nosotros .inner { grid-template-columns:1fr; gap:2.5rem; }
       .about-img-wrap::after { display:none; }
       .videos-grid { grid-template-columns:1fr; }
@@ -143,7 +170,7 @@
   <span class="hero-badge-free">✓ Presupuesto sin cargo</span>
   <div class="hero-cta">
     <a href="https://wa.me/5492477201812" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="18" height="18"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/><path d="M16 11.5a4 4 0 0 1-4 4c-.9 0-1.75-.3-2.43-.8l-.57.15.2-.54A3.97 3.97 0 0 1 8 11.5a4 4 0 0 1 4-4 4 4 0 0 1 4 4z"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="18" height="18"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
       Consultar por WhatsApp
     </a>
     <a href="#servicios" class="btn btn-outline">Ver servicios</a>
@@ -163,12 +190,12 @@
   <div class="videos-grid">
     <div class="video-wrap reveal">
       <video controls playsinline preload="metadata" muted>
-        <source src="Detr%C3%A1s%20de%20cada%20trabajo%20hay%20decisiones%20importantes%20que%20hacer%2C%20como%20que%20materiales%20usar%20y%20c%C3%B3mo%20hac.mp4" type="video/mp4"/>
+        <source src="video2" type="video/mp4"/>
       </video>
     </div>
     <div class="video-wrap reveal">
       <video controls playsinline preload="metadata" muted>
-        <source src="%C2%A1Preparate%20para%20un%20verano%20sin%20preocupaciones!Antes-%20un%20techo%20lleno%20de%20grietas%20y%20en%20mal%20estado%20%E2%9D%8CD.mp4" type="video/mp4"/>
+        <source src="video1" type="video/mp4"/>
       </video>
     </div>
   </div>
@@ -192,7 +219,7 @@
         <p>Construcción y reparación de estructuras. Paredes, revoques, contrapisos y más.</p>
       </div>
       <div class="service-card reveal">
-        <div class="service-icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3 0 2.12 2.12 0 0 1 0-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></svg></div>
+        <div class="service-icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
         <h3>MANTENIMIENTO</h3>
         <p>Mantenemos tu propiedad en óptimas condiciones. Reparaciones rápidas y duraderas.</p>
       </div>
@@ -219,13 +246,13 @@
 <section id="nosotros">
   <div class="inner">
     <div class="about-img-wrap reveal">
-      <img src="La%20diferencia%20est%C3%A1%20en%20c%C3%B3mo%20se%20hace.%20En%20Tarker%20cuidamos%20cada%20detalle%2C%20usamos%20materiales%20de%20calida.jpg" alt="Trabajador en obra de remodelación"/>
+      <img src="foto1" alt="Trabajador en obra de remodelación Tarker"/>
     </div>
     <div class="about-text">
       <p class="section-label reveal">Quiénes somos</p>
       <h2 class="section-title reveal">Compromiso en cada obra</h2>
       <div class="divider reveal"></div>
-      <p class="section-desc reveal">Somos un equipo con años de experiencia en construcción y mantenimiento. Trabajamos con seriedad, materiales de calidad y puntualidad, para que tu proyecto quede impecable y sin sorpresas.</p>
+      <p class="section-desc reveal">Somos un equipo con años de experiencia en construcción y mantenimiento. Trabajamos con seriedad, materiales de calidad y puntualidad, para que tu proyecto quede como lo imaginaste.</p>
     </div>
   </div>
 </section>
@@ -243,7 +270,7 @@
     </div>
     <div class="contact-cards">
       <a href="https://wa.me/5492477201812" target="_blank" rel="noopener noreferrer" class="contact-card reveal">
-        <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/><path d="M16 11.5a4 4 0 0 1-4 4c-.9 0-1.75-.3-2.43-.8l-.57.15.2-.54A3.97 3.97 0 0 1 8 11.5a4 4 0 0 1 4-4 4 4 0 0 1 4 4z"/></svg>
+        <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         <span>WhatsApp</span>
         <strong>2477 20-1812</strong>
       </a>
@@ -291,12 +318,17 @@
     hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 
+  // Cerrar menú al hacer click en un link
+  navMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
   const hideScrollHintOnce = () => {
     const hint = document.querySelector('.scroll-hint');
-    if (hint) {
-      hint.style.opacity = '0';
-      hint.style.pointerEvents = 'none';
-    }
+    if (hint) { hint.style.opacity = '0'; hint.style.pointerEvents = 'none'; }
     window.removeEventListener('scroll', hideScrollHintOnce);
   };
   window.addEventListener('scroll', hideScrollHintOnce, { once: true });
